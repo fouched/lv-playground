@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RedisController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get("/redis/direct", [RedisController::class, 'direct']);
+Route::get("/redis/cache", [RedisController::class, 'cacheImpl']);
+Route::get("/redis/session", [RedisController::class, 'sessionCache']);
